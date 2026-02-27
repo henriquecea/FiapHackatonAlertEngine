@@ -1,4 +1,4 @@
-﻿namespace FiapHackatonSimulations.Domain.Interface.Repository;
+﻿namespace FiapHackatonAlertEngine.Domain.Interface.Repository;
 
 public interface IRepository<T> where T : class
 {

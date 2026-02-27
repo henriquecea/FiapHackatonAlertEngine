@@ -1,6 +1,6 @@
 ﻿using FiapHackatonAlertEngine.Domain.Entity;
+using FiapHackatonAlertEngine.Domain.Interface.Repository;
 using FiapHackatonAlertEngine.Infrastructure.Data;
-using FiapHackatonSimulations.Domain.Interface.Repository;
 
 namespace FiapHackatonAlertEngine.Infrastructure.Repository;
 

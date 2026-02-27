@@ -1,4 +1,4 @@
-﻿namespace FiapHackatonSimulations.Domain.Interface.Service;
+﻿namespace FiapHackatonAlertEngine.Domain.Interface.Service;
 
 public interface IRabbitMQService
 {

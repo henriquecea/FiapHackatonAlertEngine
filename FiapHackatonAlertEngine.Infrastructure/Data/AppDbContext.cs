@@ -1,5 +1,5 @@
 ﻿using FiapHackatonAlertEngine.Domain.Entity;
-using FiapHackatonSimulations.Infrastructure.Data.Mapping;
+using FiapHackatonAlertEngine.Infrastructure.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 
 namespace FiapHackatonAlertEngine.Infrastructure.Data;

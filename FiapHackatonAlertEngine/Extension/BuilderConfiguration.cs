@@ -1,6 +1,14 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using FiapHackatonAlertEngine.Application.Services.RabbitMQ;
+using FiapHackatonAlertEngine.Domain.Handler;
+using FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
+using FiapHackatonAlertEngine.Domain.Settings;
+using FiapHackatonAlertEngine.Infrastructure.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using RabbitMQ.Client;
 using System.Text;
 
 namespace FiapHackatonAlertEngine.WebAPI.Extension;
@@ -31,10 +39,8 @@ public static class BuilderConfiguration
             };
         });
 
-        builder.Services.AddSingleton<IRabbitMQService, RabbitMQService>();
-
         builder.Services.AddScoped<IRabbitMQReceiver, RabbitMQReceiver>();
-        builder.Services.AddScoped<IRabbitMQMessageHandler, SimulationHandler>();
+        builder.Services.AddScoped<IRabbitMQMessageHandler, AlertEngineHandler>();
 
         builder.Services.AddHostedService<RabbitMQConsumer>();
     }

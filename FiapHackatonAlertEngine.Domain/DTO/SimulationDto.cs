@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace FiapHackatonSimulations.Domain.DTO;
+namespace FiapHackatonAlertEngine.Domain.DTO;
 
 public record SimulationDto(
     [property: JsonProperty("plot")] Guid Plot,

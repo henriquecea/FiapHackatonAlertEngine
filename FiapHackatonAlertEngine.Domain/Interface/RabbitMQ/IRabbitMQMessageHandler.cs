@@ -6,4 +6,3 @@ public interface IRabbitMQMessageHandler
 
     Task HandleAsync(string message);
 }
-s

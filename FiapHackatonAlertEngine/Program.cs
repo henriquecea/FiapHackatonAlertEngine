@@ -1,5 +1,7 @@
+using FiapHackatonAlertEngine.Infrastructure.Data;
 using FiapHackatonAlertEngine.WebAPI.Extension;
 using FiapHackatonAlertEngine.WebAPI.FiapHackatonAlertEngine.Extension;
+using Microsoft.EntityFrameworkCore;
 using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);

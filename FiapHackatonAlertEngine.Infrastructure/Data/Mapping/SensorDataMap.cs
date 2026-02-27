@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FiapHackatonSimulations.Infrastructure.Data.Mapping;
+namespace FiapHackatonAlertEngine.Infrastructure.Data.Mapping;
 
 public class SensorDataMap : IEntityTypeConfiguration<SensorData>
 {

@@ -1,6 +1,6 @@
 ﻿using FiapHackatonAlertEngine.Domain.Entity;
 
-namespace FiapHackatonSimulations.Domain.Interface.Repository;
+namespace FiapHackatonAlertEngine.Domain.Interface.Repository;
 
 public interface IAlertEngineRepository : IRepository<SensorData>
 {

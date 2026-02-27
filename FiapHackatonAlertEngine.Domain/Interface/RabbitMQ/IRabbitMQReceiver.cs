@@ -1,4 +1,4 @@
-﻿using FiapHackatonSimulations.Domain.DTO;
+﻿using FiapHackatonAlertEngine.Domain.DTO;
 
 namespace FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
 
