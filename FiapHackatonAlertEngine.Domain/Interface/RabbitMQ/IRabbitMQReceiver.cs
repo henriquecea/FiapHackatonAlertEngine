@@ -1,6 +1,6 @@
 ﻿using FiapHackatonSimulations.Domain.DTO;
 
-namespace FiapHackatonSimulations.Domain.Interface.RabbitMQ;
+namespace FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
 
 public interface IRabbitMQReceiver
 {

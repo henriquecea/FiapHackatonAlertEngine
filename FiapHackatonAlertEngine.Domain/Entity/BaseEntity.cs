@@ -1,4 +1,4 @@
-﻿namespace FiapHackatonSimulations.Domain.Entity;
+﻿namespace FiapHackatonAlertEngine.Domain.Entity;
 
 public class BaseEntity
 {

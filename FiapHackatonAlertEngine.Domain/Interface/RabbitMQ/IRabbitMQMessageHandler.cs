@@ -1,4 +1,4 @@
-﻿namespace FiapHackatonSimulations.Domain.Interface.RabbitMQ;
+﻿namespace FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
 
 public interface IRabbitMQMessageHandler
 {
@@ -6,3 +6,4 @@ public interface IRabbitMQMessageHandler
 
     Task HandleAsync(string message);
 }
+s
