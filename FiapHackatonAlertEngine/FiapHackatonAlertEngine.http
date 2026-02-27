@@ -1,0 +1,6 @@
+@FiapHackatonAlertEngine_HostAddress = http://localhost:5217
+
+GET {{FiapHackatonAlertEngine_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

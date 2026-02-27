@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../FiapHackatonAlertEngine.Application/FiapHackatonAlertEngine.Application.csproj" />
+  <Project Path="../FiapHackatonAlertEngine.Domain/FiapHackatonAlertEngine.Domain.csproj" />
+  <Project Path="../FiapHackatonAlertEngine.Infrastructure/FiapHackatonAlertEngine.Infrastructure.csproj" />
+  <Project Path="../FiapHackatonAlertEngine.Tests/FiapHackatonAlertEngine.Tests.csproj" />
+  <Project Path="FiapHackatonAlertEngine.WebAPI.csproj" />
+</Solution>
