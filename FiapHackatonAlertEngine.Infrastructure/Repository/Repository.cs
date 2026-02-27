@@ -1,4 +1,8 @@
-﻿namespace FiapHackatonAlertEngine.Infrastructure.Repository;
+﻿using FiapHackatonAlertEngine.Infrastructure.Data;
+using FiapHackatonSimulations.Domain.Interface.Repository;
+using Microsoft.EntityFrameworkCore;
+
+namespace FiapHackatonAlertEngine.Infrastructure.Repository;
 
 public class Repository<T>(AppDbContext context)
     : IRepository<T> where T : class

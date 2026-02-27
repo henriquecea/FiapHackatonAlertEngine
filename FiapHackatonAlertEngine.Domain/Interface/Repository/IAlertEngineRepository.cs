@@ -2,6 +2,6 @@
 
 namespace FiapHackatonSimulations.Domain.Interface.Repository;
 
-public interface ISimulationRepository : IRepository<SensorData>
+public interface IAlertEngineRepository : IRepository<SensorData>
 {
 }
