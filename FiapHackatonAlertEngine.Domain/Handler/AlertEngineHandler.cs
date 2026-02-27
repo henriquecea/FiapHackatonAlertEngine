@@ -1,6 +1,4 @@
-﻿using FiapHackatonAlertEngine.Domain.DTO;
-using FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
-using Newtonsoft.Json;
+﻿using FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
 
 namespace FiapHackatonAlertEngine.Domain.Handler;
 
@@ -8,11 +6,6 @@ public class AlertEngineHandler(IRabbitMQReceiver receiver) : IRabbitMQMessageHa
 {
     public string QueueName => "alert-queue";
 
-    public async Task HandleAsync(string message)
-    {
-        var dto = JsonConvert.DeserializeObject<SimulationDto>(message);
-
-        if (dto is not null)
-            await receiver.HandleAsync(dto);
-    }
+    public async Task HandleAsync(string plotId) =>
+        await receiver.HandleAsync(plotId);
 }

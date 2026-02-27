@@ -2,5 +2,5 @@
 
 public interface IAlertEngineService
 {
-
+    Task SearchAllPlotsAndSendMessage();
 }

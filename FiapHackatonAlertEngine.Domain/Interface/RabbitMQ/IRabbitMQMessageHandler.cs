@@ -4,5 +4,5 @@ public interface IRabbitMQMessageHandler
 {
     string QueueName { get; }
 
-    Task HandleAsync(string message);
+    Task HandleAsync(string plotId);
 }

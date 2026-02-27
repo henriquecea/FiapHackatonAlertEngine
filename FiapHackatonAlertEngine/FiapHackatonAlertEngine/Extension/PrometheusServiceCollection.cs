@@ -1,18 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿namespace FiapHackatonAlertEngine.WebAPI.FiapHackatonAlertEngine.Extension;
 
-namespace FiapHackatonAlertEngine.WebAPI.FiapHackatonAlertEngine.Extension
+
+public static class PrometheusServiceCollectionExtension
 {
-
-    public static class PrometheusServiceCollectionExtension
+    public static IServiceCollection AddPrometheusMonitoring(this IServiceCollection services)
     {
-        public static IServiceCollection AddPrometheusMonitoring(this IServiceCollection services)
-        {
-            // Aqui você poderia futuramente configurar:
-            // - métricas custom globais
-            // - métricas de background services
-            // - collectors adicionais
+        // Aqui você poderia futuramente configurar:
+        // - métricas custom globais
+        // - métricas de background services
+        // - collectors adicionais
 
-            return services;
-        }
+        return services;
     }
 }
