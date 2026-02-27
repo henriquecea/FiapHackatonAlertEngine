@@ -2,7 +2,8 @@
 
 namespace FiapHackatonAlertEngine.WebAPI.Background;
 
-public class AlertEngineJob(IAlertEngineService alertService) : BackgroundService
+public class AlertEngineJob(IServiceScopeFactory scopeFactory)
+    : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -10,14 +11,18 @@ public class AlertEngineJob(IAlertEngineService alertService) : BackgroundServic
         {
             try
             {
+                using var scope = scopeFactory.CreateScope();
+
+                var alertService = scope.ServiceProvider
+                    .GetRequiredService<IAlertEngineService>();
+
                 await alertService.SearchAllPlotsAndSendMessage();
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine($"Erro no AlertEngineJob: {ex.Message}");
             }
 
-            // Espera 5 minutos
             await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
         }
     }

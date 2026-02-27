@@ -3,6 +3,7 @@ using FiapHackatonAlertEngine.Domain.Interface.Repository;
 using FiapHackatonAlertEngine.Domain.Interface.Service;
 using FiapHackatonAlertEngine.Infrastructure.Data;
 using FiapHackatonAlertEngine.Infrastructure.Repository;
+using FiapHackatonAlertEngine.WebAPI.Background;
 using FiapHackatonAlertEngine.WebAPI.Extension;
 using FiapHackatonAlertEngine.WebAPI.FiapHackatonAlertEngine.Extension;
 using Microsoft.EntityFrameworkCore;
@@ -22,11 +23,11 @@ builder.Services.AddControllers()
 builder.Services.AddPrometheusMonitoring();
 
 // Injeção de dependência
+builder.Services.AddHostedService<AlertEngineJob>();
 builder.Services.AddScoped<IAlertEngineService, AlertEngineService>();
 
 builder.Services.AddScoped<IAlertEngineRepository, AlertEngineRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
