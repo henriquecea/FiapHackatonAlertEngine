@@ -39,7 +39,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
 
         if (avg < 25)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(nameof(CheckAverageSoilMoistureLow));
         }
     }
 
@@ -53,7 +53,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
 
         if (avg > 80)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(nameof(CheckAverageSoilMoistureHigh));
         }
     }
 
@@ -67,7 +67,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
 
         if (avg > 35)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(nameof(CheckAverageTemperatureHigh));
         }
     }
 
@@ -81,7 +81,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
 
         if (avg < 5)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(nameof(CheckAverageTemperatureLow));
         }
     }
 
@@ -95,7 +95,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
 
         if (avg > 50)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(nameof(CheckAveragePrecipitationHigh));
         }
     }
 }
