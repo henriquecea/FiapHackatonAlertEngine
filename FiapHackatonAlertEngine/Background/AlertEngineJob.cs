@@ -23,7 +23,7 @@ public class AlertEngineJob(IServiceScopeFactory scopeFactory)
                 Console.WriteLine($"Erro no AlertEngineJob: {ex.Message}");
             }
 
-            await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
+            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
         }
     }
 }

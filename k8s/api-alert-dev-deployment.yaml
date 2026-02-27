@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-alert-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-alert-dev
+  template:
+    metadata:
+      labels:
+        app: api-alert-dev
+    spec:
+      containers:
+        - name: api-alert-dev
+          image: api-alert-dev:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Development"
+            - name: ConnectionStrings__DefaultConnection
+              value: "Server=sql-server;Database=FiapHackaton;User Id=sa;Password=NovaSenhaForte123!;TrustServerCertificate=True;"
+            - name: RabbitMq__Host
+              value: "rabbitmq"
+            - name: RabbitMq__Port
+              value: "5672"
+            - name: RabbitMq__Username
+              value: "admin"
+            - name: RabbitMq__Password
+              value: "admin123"

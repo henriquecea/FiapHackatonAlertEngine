@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  sql-alert-dev:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql-alert-dev
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "NovaSenhaForte123!"
+      MSSQL_PID: "Developer"
+    ports:
+      - "14333:1433"
+    volumes:
+      - sql_alert_dev_data:/var/opt/mssql
+
+  rabbitmq-alert-dev:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-alert-dev
+    hostname: rabbitmq-alert-dev
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+    ports:
+      - "5674:5672"
+      - "15674:15672"
+    volumes:
+      - rabbitmq_alert_dev_data:/var/lib/rabbitmq
+    restart: unless-stopped
+
+  api-alert-dev:
+    build: .
+    container_name: api-alert-dev
+    depends_on:
+      - sql-alert-dev
+      - rabbitmq-alert-dev
+    ports:
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+
+volumes:
+  sql_alert_dev_data:
+  rabbitmq_alert_dev_data:
