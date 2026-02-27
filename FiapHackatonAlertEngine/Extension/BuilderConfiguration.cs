@@ -1,6 +1,7 @@
 ﻿using FiapHackatonAlertEngine.Application.Services.RabbitMQ;
 using FiapHackatonAlertEngine.Domain.Handler;
 using FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
+using FiapHackatonAlertEngine.Domain.Interface.Service;
 using FiapHackatonAlertEngine.Domain.Settings;
 using FiapHackatonAlertEngine.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,6 +39,7 @@ public static class BuilderConfiguration
                 Password = settings.Password
             };
         });
+        builder.Services.AddSingleton<IRabbitMQService, RabbitMQService>();
 
         builder.Services.AddScoped<IRabbitMQReceiver, RabbitMQReceiver>();
         builder.Services.AddScoped<IRabbitMQMessageHandler, AlertEngineHandler>();
