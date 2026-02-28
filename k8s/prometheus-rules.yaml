@@ -7,47 +7,48 @@ data:
     groups:
       - name: api-alerts
         rules:
+
           - alert: SoilMoistureLow
-            expr: soil_moisture_low_total > 0
+            expr: increase(soil_moisture_low_total[1m]) > 0
             for: 0s
             labels:
               severity: critical
             annotations:
               summary: "Umidade do solo baixa"
-              description: "A média de umidade do solo caiu abaixo de 25%"
+              description: "Novo evento de baixa umidade detectado"
 
           - alert: SoilMoistureHigh
-            expr: soil_moisture_high_total > 0
+            expr: increase(soil_moisture_high_total[1m]) > 0
             for: 0s
             labels:
               severity: critical
             annotations:
               summary: "Umidade do solo alta"
-              description: "A média de umidade do solo subiu acima de 75%"
+              description: "Novo evento de alta umidade detectado"
 
           - alert: TemperatureHigh
-            expr: temperature_high_total > 0
+            expr: increase(temperature_high_total[1m]) > 0
             for: 0s
             labels:
               severity: critical
             annotations:
               summary: "Temperatura alta"
-              description: "A média de temperatura está acima de 35°C"
+              description: "Novo evento de temperatura alta detectado"
 
           - alert: TemperatureLow
-            expr: temperature_low_total > 0
+            expr: increase(temperature_low_total[1m]) > 0
             for: 0s
             labels:
               severity: critical
             annotations:
               summary: "Temperatura baixa"
-              description: "A média de temperatura caiu abaixo de 10°C"
+              description: "Novo evento de temperatura baixa detectado"
 
           - alert: PrecipitationHigh
-            expr: precipitation_high_total > 0
+            expr: increase(precipitation_high_total[1m]) > 0
             for: 0s
             labels:
               severity: critical
             annotations:
               summary: "Precipitação alta"
-              description: "A média de precipitação está acima de 50%"
+              description: "Novo evento de precipitação alta detectado"
