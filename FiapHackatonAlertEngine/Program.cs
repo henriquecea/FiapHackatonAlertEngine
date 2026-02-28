@@ -45,7 +45,6 @@ app.MapGet("/", context =>
     return Task.CompletedTask;
 });
 
-
 app.UseAuthentication();
 app.UseAuthorization();
 

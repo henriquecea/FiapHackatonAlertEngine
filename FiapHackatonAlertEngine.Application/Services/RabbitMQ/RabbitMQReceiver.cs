@@ -1,6 +1,8 @@
-﻿using FiapHackatonAlertEngine.Domain.Entity;
+﻿using FiapHackatonAlertEngine.Application.Helper;
+using FiapHackatonAlertEngine.Domain.Entity;
 using FiapHackatonAlertEngine.Domain.Interface.RabbitMQ;
 using FiapHackatonAlertEngine.Domain.Interface.Repository;
+using Prometheus;
 
 namespace FiapHackatonAlertEngine.Application.Services.RabbitMQ;
 
@@ -38,9 +40,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
         var avg = data.Take(25).Average(x => x.SoilMoisture);
 
         if (avg < 25)
-        {
-            Console.WriteLine(nameof(CheckAverageSoilMoistureLow));
-        }
+            MetricsRegistry.SoilMoistureLowCounter.Inc();
     }
 
     /// <summary>
@@ -52,9 +52,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
         var avg = data.Take(25).Average(x => x.SoilMoisture);
 
         if (avg > 80)
-        {
-            Console.WriteLine(nameof(CheckAverageSoilMoistureHigh));
-        }
+            MetricsRegistry.SoilMoistureHighCounter.Inc();
     }
 
     /// <summary>
@@ -66,9 +64,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
         var avg = data.Take(25).Average(x => x.Temperature);
 
         if (avg > 35)
-        {
-            Console.WriteLine(nameof(CheckAverageTemperatureHigh));
-        }
+            MetricsRegistry.TemperatureHighCounter.Inc();
     }
 
     /// <summary>
@@ -80,9 +76,7 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
         var avg = data.Take(25).Average(x => x.Temperature);
 
         if (avg < 5)
-        {
-            Console.WriteLine(nameof(CheckAverageTemperatureLow));
-        }
+            MetricsRegistry.TemperatureLowCounter.Inc();
     }
 
     /// <summary>
@@ -94,8 +88,6 @@ public class RabbitMQReceiver(IAlertEngineRepository alertRepository) : IRabbitM
         var avg = data.Take(25).Average(x => x.PrecipitationLevel);
 
         if (avg > 50)
-        {
-            Console.WriteLine(nameof(CheckAveragePrecipitationHigh));
-        }
+            MetricsRegistry.PrecipitationHighCounter.Inc();
     }
 }
